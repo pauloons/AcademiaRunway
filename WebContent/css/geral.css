@@ -1,0 +1,138 @@
+* {
+    font-family: "Arial";
+}
+
+body {
+    background-color: #994545;
+    text-align: center;
+}
+
+nav a {
+    color: #dec7c7;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    color: darkred;
+    font-size: large;
+    font-family: "Tahoma";
+    font-size: 20px;
+    background-color: azure;
+    text-transform: uppercase;
+    font-style: italic;
+    width: 400px;
+    border-left: 15px solid red;
+    border-right: 15px solid red;
+    border-top: 5px solid red;
+    border-bottom: 5px solid red;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+h1, fieldset, table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#infMessage {
+    background-color: #ffa640;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+}
+
+fieldset {
+    background-color: #dec7c7;
+    width: 600px;
+    text-align: left;
+    border-radius: 8px;
+}
+
+legend {
+    background-color: #dec7c7;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+legend, label {
+    color: #994545;
+}
+
+input, select {
+    border: 3px solid #994545;
+    margin-bottom: 7px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+
+}
+
+input[type=text] {
+    width: 600px;
+    border-radius: 8px;
+
+}
+
+input[type=button],
+input[type=submit] {
+    background-color: orange;
+    border-bottom-color: darkred;
+    border-top-color: darkred;
+    border-right-color: darkred;
+    border-left-color: darkred;
+    border-radius: 5px;
+    color: #994545;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 3px;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover {
+    background-color: #ffb940;
+    border-radius: 8px;
+}
+
+table {
+    background-color: #dec7c7;
+    border-radius: 5px;
+    border-spacing: 3px;
+    border-collapse: separate;
+    font-size: 14px;
+    width: 50%;
+    text-transform: uppercase;
+}
+th{
+    background-color: #ffa640;
+    border-collapse: separate;
+    font-size: 14px;
+    padding: 3px;
+}
+tr:nth-child(even){
+background-color: azure;
+}
+tr:nth-child(odd){
+background-color: #c4abab;
+}
+td{
+    padding: 3px;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="css/geral.css">
+</head>
+<body>
+<header>
+    <img src="images/logo.png">
+    <nav>
+        <div>
+            <a href="novoAluno.html">Novo Aluno</a><br>
+            <a href="pesquisaAluno.html">Pesquisa de Aluno</a><br>
+            <a href="controleAcesso.html">Controle de Acessos</a><br>
+            <a href="relatorioDeEntradaSaidas.html">Relatorios de Entradas e Saídas</a><br>
+            <a href="relatorioDeSituacoes.html">Relatorios de Situações</a><br>
+        </div>
+    </nav>
+</header>
+<h1>Index</h1>
+<div id="infMessage">Eventual mensagem do sistema</div>
+<br><br>
+<form>
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+        <label for="nome">Nome:</label>+
+        <input id="nome" type="text" size="80">
+        <BR> <BR>
+        <label for="rg">RG:</label>
+        <input id="rg" type="number" size="30">
+        <BR> <BR>
+        <label for="sexo">Sexo:</label>
+        <select id="sexo">
+            <option>MASCULINO</option>
+            <option>FEMININO</option>
+        </select>
+        <BR> <BR>
+        <label for="dtNasc">RG:</label>
+        <input id="dtNasc" type="date" size="30">
+        <BR> <BR>
+    </fieldset>
+    <BR> <BR>
+    <fieldset>
+        <legend>Situação</legend>
+        <label for="selSit">Situação</label>
+        <select name="selSit"  id="selSit">
+            <option>Ativo</option>
+            <option>Inativo</option>
+            <option>Com Pendencia</option>
+        </select>
+    </fieldset>
+</form>
+
+</body>
+</html>

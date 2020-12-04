@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatorio de Situações</title>
+    <link rel="stylesheet" type="text/css" href="css/geral.css">
+</head>
+<body>
+<header>
+    <img src="images/logo.png">
+    <nav>
+        <div>
+            <a href="novoAluno.html">Novo Aluno</a><br>
+            <a href="pesquisaAluno.html">Pesquisa de Aluno</a><br>
+            <a href="controleAcesso.html">Controle de Acessos</a><br>
+            <a href="relatorioDeEntradaSaidas.html">Relatorios de Entradas e Saídas</a><br>
+            <a href="relatorioDeSituacoes.html">Relatorios de Situações</a><br>
+        </div>
+    </nav>
+</header>
+<h1>Relatorio de Entrada e Saida</h1>
+<div id="infMessage">Eventual mensagem do sistema</div>
+<br><br>
+<fieldset>
+    <legend>Parametros de Acessos</legend>
+    <label for="id">ID:</label><br>
+    <input id="id" name="id" type="number"><br>
+    <label for="dtIni">Data Inicial:</label><br>
+    <input id="dtIni" type="date"><br>
+    <label for="dtFim">Data Final:</label><br>
+    <input id="dtFim" type="date"><br><br>
+    <input type="button" value="Gerar Relatório"><br>
+</fieldset>
+<br><br>
+<table>
+    <tr>
+        <th>ID:</th>
+        <th>Nome:</th>
+        <th>Entrada:</th>
+        <th>Saída:</th>
+        <th>Duração:</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>paulo</td>
+        <td>21/04/2007</td>
+        <td>21/04/2007</td>
+        <td>00:42</td>
+    </tr>
+</table>
+</body>
+</html>

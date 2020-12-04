@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Aluno</title>
+    <link rel="stylesheet" type="text/css" href="css/geral.css">
+</head>
+<body>
+<header>
+    <img src="images/logo.png">
+    <nav>
+        <div>
+            <a href="novoAluno.html">Novo Aluno</a><br>
+            <a href="pesquisaAluno.html">Pesquisa de Aluno</a><br>
+            <a href="controleAcesso.html">Controle de Acessos</a><br>
+            <a href="relatorioDeEntradaSaidas.html">Relatorios de Entradas e Saídas</a><br>
+            <a href="relatorioDeSituacoes.html">Relatorios de Situações</a><br>
+        </div>
+    </nav>
+</header>
+<h1>Novo Aluno</h1>
+<div id="infMessage">Eventual mensagem do sistema</div>
+<br><br>
+<form>
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+        <label for="nome">Nome:</label>
+        <br>
+        <input id="nome" type="text">
+        <br>
+        <label for="rg">RG:</label>
+        <br>
+        <input id="rg" type="number">
+        <br>
+        <label for="sexo">Sexo:</label>
+        <br>
+        <select id="sexo">
+            <option>MASCULINO</option>
+            <option>FEMININO</option>
+        </select>
+        <br>
+        <label for="dtNasc">DtNasc</label>
+        <br>
+        <input id="dtNasc" type="date">
+        <br>
+    </fieldset>
+    <br><br>
+    <fieldset>
+        <legend>Situação</legend>
+        <label for="selSit">Situação</label>
+        <br>
+        <select name="selSit" id="selSit">
+            <option>Ativo</option>
+            <option>Inativo</option>
+            <option>Com Pendencia</option>
+        </select>
+        <br>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Endereço</legend>
+        <label for="rua">Rua:</label>
+        <br>
+        <input id="rua" type="number" name="rua">
+        <br>
+        <label for="qd">Qd:</label>
+        <br>
+        <input id="qd" type="text" name="qd">
+        <br>
+        <label for="cidade">Cidade</label>
+        <br>
+        <input id="cidade" type="text" name="cidade">
+        <br>
+        <label for="numero">Número:</label>
+        <br>
+        <input id="numero" type="number" name="numero">
+        <br>
+        <label for="cep">CEP:</label>
+        <br>
+        <input id="cep" type="number" name="cep">
+        <br>
+        <br>
+        <label for="estado">Estado:</label>
+        <br>
+        <select id="estado">
+            <option>Lista</option>
+        </select>
+        <br>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>CONTATO</legend>
+        <label for="tel">Telefone</label>
+        <br>
+        <input id="tel" type="tel">
+        <br>
+        <label for="email">E-mail</label>
+        <br>
+        <input id="email" type="email">
+        <br>
+    </fieldset>
+    <br>
+    <input type="submit"value="GRAVAR">
+    <input type="submit"value="RELATORIOS">
+    <input type="submit"value="VOLTAR" SRC="index.html">
+</form>
+</body>
+</html>

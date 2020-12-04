@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa Aluno</title>
+    <link rel="stylesheet" type="text/css" href="css/geral.css">
+</head>
+<body>
+<header>
+    <img src="images/logo.png">
+    <nav>
+        <div>
+            <a href="novoAluno.html">Novo Aluno</a><br>
+            <a href="pesquisaAluno.html">Pesquisa de Aluno</a><br>
+            <a href="controleAcesso.html">Controle de Acessos</a><br>
+            <a href="relatorioDeEntradaSaidas.html">Relatorios de Entradas e Saídas</a><br>
+            <a href="relatorioDeSituacoes.html">Relatorios de Situações</a><br>
+        </div>
+    </nav>
+</header>
+<h1>Novo Aluno</h1>
+<div id="infMessage">Eventual mensagem do sistema</div>
+<br>
+<form>
+    <fieldset>
+        <legend> Pesquias de Aluno</legend>
+        <label for="id">ID</label><br>
+        <input id="id" name="id" type="number"><br>
+        <label for="nome">Nome</label><br>
+        <input id="nome" name="rg" type="text"><br>
+        <label for="rg">RG:</label><br>
+        <input id="rg" name="rg" type="number"><br>
+        <label for="tel">Telefone</label><br>
+        <input id="tel" name="tel" type="number"><br><br>
+        <input type="submit" value="PESQUISAR">
+    </fieldset>
+</form>
+<br><br>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Nome:</th>
+        <th>RG:</th>
+        <th>Situação:</th>
+        <th>Açoes:</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>paulo</td>
+        <td>123</td>
+        <td>ativo</td>
+        <td><input type="button" value="Editar">
+        <input type="button" value="Excluir"></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>paulo</td>
+        <td>123</td>
+        <td>ativo</td>
+        <td><input type="button" value="Editar">
+        <input type="button" value="Excluir"></td>
+    </tr>
+</table>
+
+</body>
+</html>

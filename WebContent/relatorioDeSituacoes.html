@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Aluno</title>
+    <link rel="stylesheet" type="text/css" href="css/geral.css">
+</head>
+<body>
+<header>
+    <img src="images/logo.png">
+    <nav>
+        <div>
+            <a href="novoAluno.html">Novo Aluno</a><br>
+            <a href="pesquisaAluno.html">Pesquisa de Aluno</a><br>
+            <a href="controleAcesso.html">Controle de Acessos</a><br>
+            <a href="relatorioDeEntradaSaidas.html">Relatorios de Entradas e Saídas</a><br>
+            <a href="relatorioDeSituacoes.html">Relatorios de Situações</a><br>
+        </div>
+    </nav>
+</header>
+<h1>Relatorio de Situação</h1>
+<div id="infMessage">Eventual mensagem do sistema</div>
+<br><br>
+<fieldset>
+    <legend>Parametros de Pesquisa</legend>
+    <label for="selSit">Situação</label>
+    <br>
+    <select name="selSit" id="selSit">
+        <option>Ativo</option>
+        <option>Inativo</option>
+        <option>Com Pendencia</option>
+    </select>
+    <br>
+</fieldset>
+<br>
+<input type="button"value="Gerar Relatorio">
+<br><br>
+<table>
+    <tr>
+        <th>ID:</th>
+        <th>Nome:</th>
+        <th>Situação:</th>
+        <th>Telefone:</th>
+        <th>Ação:</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>paulo</td>
+        <td>Ativo</td>
+        <td>6189985545</td>
+        <td><input type="button" value="editar"></td>
+    </tr>
+</table>
+</body>
+</html>
