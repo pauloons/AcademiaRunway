@@ -1,108 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <title>Novo Aluno</title>
-    <link rel="stylesheet" type="text/css" href="css/geral.css">
-</head>
-<body>
-<header>
-    <img src="images/logo.png">
-    <nav>
-        <div>
-            <a href="novoAluno.html">Novo Aluno</a><br>
-            <a href="pesquisaAluno.html">Pesquisa de Aluno</a><br>
-            <a href="controleAcesso.html">Controle de Acessos</a><br>
-            <a href="relatorioDeEntradaSaidas.html">Relatorios de Entradas e SaÃ­das</a><br>
-            <a href="relatorioDeSituacoes.html">Relatorios de SituaÃ§Ãµes</a><br>
-        </div>
-    </nav>
-</header>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" lang="pt-br">
+
+<ui:composition template="layout.xhtml">
+<ui:define name="conteudo">
+
 <h1>Novo Aluno</h1>
 <div id="infMessage">Eventual mensagem do sistema</div>
-<br><br>
-<form>
-    <fieldset>
-        <legend>Dados Pessoais</legend>
-        <label for="nome">Nome:</label>
-        <br>
-        <input id="nome" type="text">
-        <br>
-        <label for="rg">RG:</label>
-        <br>
-        <input id="rg" type="number">
-        <br>
-        <label for="sexo">Sexo:</label>
-        <br>
-        <select id="sexo">
-            <option>MASCULINO</option>
-            <option>FEMININO</option>
-        </select>
-        <br>
-        <label for="dtNasc">DtNasc</label>
-        <br>
-        <input id="dtNasc" type="date">
-        <br>
-    </fieldset>
-    <br><br>
-    <fieldset>
-        <legend>SituaÃ§Ã£o</legend>
-        <label for="selSit">SituaÃ§Ã£o</label>
-        <br>
-        <select name="selSit" id="selSit">
-            <option>Ativo</option>
-            <option>Inativo</option>
-            <option>Com Pendencia</option>
-        </select>
-        <br>
-    </fieldset>
-    <br>
-    <fieldset>
-        <legend>EndereÃ§o</legend>
-        <label for="rua">Rua:</label>
-        <br>
-        <input id="rua" type="number" name="rua">
-        <br>
-        <label for="qd">Qd:</label>
-        <br>
-        <input id="qd" type="text" name="qd">
-        <br>
-        <label for="cidade">Cidade</label>
-        <br>
-        <input id="cidade" type="text" name="cidade">
-        <br>
-        <label for="numero">NÃºmero:</label>
-        <br>
-        <input id="numero" type="number" name="numero">
-        <br>
-        <label for="cep">CEP:</label>
-        <br>
-        <input id="cep" type="number" name="cep">
-        <br>
-        <br>
-        <label for="estado">Estado:</label>
-        <br>
-        <select id="estado">
-            <option>Lista</option>
-        </select>
-        <br>
-    </fieldset>
-    <br>
-    <fieldset>
-        <legend>CONTATO</legend>
-        <label for="tel">Telefone</label>
-        <br>
-        <input id="tel" type="tel">
-        <br>
-        <label for="email">E-mail</label>
-        <br>
-        <input id="email" type="email">
-        <br>
-    </fieldset>
-    <br>
-    <input type="submit"value="GRAVAR">
-    <input type="submit"value="RELATORIOS">
-    <input type="submit"value="VOLTAR" SRC="index.html">
+<br />
+<br />
+<form jsf:id="form">
+	<fieldset>
+		<legend>Dados pessoais</legend>
+		<label for="nome">Nome</label><br />
+		 <input type="text"
+			jsf:value="#{alunoBean.aluno.nome}" id="nome" maxlength="64"
+			jsf:label="Nome">
+		<f:validateLength minimum="2" maximum="64" />
+		</input><br /> 
+		<label for="sexo">Sexo</label><br /> 
+		<select
+			jsf:value="#{alunoBean.aluno.sexo}" id="sexo" size="0">
+			<f:selectItems value="#{dataBean.sexos}" />
+		</select><br /> 
+		<label for="rg">RG</label><br /> 
+		<input type="text"
+			jsf:value="#{alunoBean.aluno.rg}" id="rg" maxlength="10"
+			jsf:label="RG">
+		<f:validateRequired />
+		<f:validateLongRange minimum="100000" maximum="9999999999" />
+		</input><br /> 
+		<label for="dataDeNascimento">Data de Nascimento</label><br />
+		<input type="date" jsf:value="#{alunoBean.aluno.dataNasc}"
+			id="dataDeNascimento" jsf:label="Data de Nascimento">
+		<f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+		<f:validateRequired />
+		</input>
+	</fieldset>
+	<fieldset>
+		<legend>Situação</legend>
+		<label for="selSit">Situação</label> <br /> 
+		<select  jsf:value="#{alunoBean.aluno.situacao}" id="selSit" size="0">
+		<f:selectItems value="#{dataBean.situacoes}"></f:selectItems>
+		</select> <br />
+	</fieldset>
+	<br />
+	<fieldset>
+		<legend>Endereço</legend>
+		<label for="rua">Rua:</label> <br /> <input id="rua" type="number"
+			name="rua" /> <br /> <label for="qd">Qd:</label> <br /> <input
+			id="qd" type="text" name="qd" /> <br /> <label for="cidade">Cidade</label>
+		<br /> <input id="cidade" type="text" name="cidade" /> <br /> <label
+			for="numero">Número:</label> <br /> <input id="numero" type="number"
+			name="numero" /> <br /> <label for="cep">CEP:</label> <br /> <input
+			id="cep" type="number" name="cep" /> <br /> <br /> <label
+			for="estado">Estado:</label> <br /> <select id="estado">
+			<option>Lista</option>
+		</select> <br />
+	</fieldset>
+	<br />
+	<fieldset>
+		<legend>CONTATO</legend>
+		<label for="tel">Telefone</label> <br /> <input id="tel" type="tel" />
+		<br /> <label for="email">E-mail</label> <br /> <input id="email"
+			type="email" /> <br />
+	</fieldset>
+	<br /> <input type="submit" value="Gravar" /> <input type="button"
+		value="Relarorio de entradas e saídas" />
 </form>
-</body>
+</ui:define>
+</ui:composition>
 </html>
