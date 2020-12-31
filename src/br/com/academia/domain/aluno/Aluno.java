@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,42 +15,50 @@ import javax.persistence.Table;
 public class Aluno implements Serializable {
 
 	public enum Sexo {
-		masculino, feminino
+		Masculino, Feminino;
 	}
-
-	public enum Situacao {
-		ativo, inativo, pendente
-	}
-
-	@Column(name = "NOME")
-	private String nome;
-
-	@Id
-	@Column(name = "ID_ALUNO", nullable = false, length = 8)
-	private int matricula;
-
-	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "SEXO", nullable = false, length = 2)
-	private Sexo sexo;
-
-	@Column(name = "RG", nullable = false, length = 10)
-	private int rg;
-
-	@Column(name = "DATANASC", nullable = false, length = 9)
-	private LocalDate dataNasc;
 	
-	@Column(name = "EMAIL")
+	public enum Situacao {
+		Ativo, Inativo, Pendente;
+	}
+	
+	@Id
+	@Column(name = "ID", nullable = false, length = 8)
+	private String matricula;
+	
+	@Column(name = "NOME", nullable = false, length = 64)
+	private String nome;
+	
+	@Enumerated
+	@Column(name = "SEXO", nullable = false, length = 1)
+	private Sexo sexo;
+	
+	@Column(name = "RG", nullable = false, length = 10)
+	private Integer rg;
+	
+	@Column(name = "NASCIMENTO", nullable = false)
+	private LocalDate dataNascimento;
+	
+	@Enumerated
+	@Column(name = "SITUACAO", nullable = false, length = 1)
+	private Situacao situacao;
+	
+	@Column(name = "EMAIL", nullable = true, length = 64)
 	private String email;
-
+	
 	@Embedded
 	private Endereco endereco = new Endereco();
-
+	
 	@Embedded
 	private Telefone telefone = new Telefone();
 	
-	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "SITUACAO", length = 1)
-	private Situacao situacao;
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
 
 	public String getNome() {
 		return nome;
@@ -59,14 +66,6 @@ public class Aluno implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public int getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
 	}
 
 	public Sexo getSexo() {
@@ -77,20 +76,36 @@ public class Aluno implements Serializable {
 		this.sexo = sexo;
 	}
 
-	public int getRg() {
+	public Integer getRg() {
 		return rg;
 	}
 
-	public void setRg(int rg) {
+	public void setRg(Integer rg) {
 		this.rg = rg;
 	}
 
-	public LocalDate getDataNasc() {
-		return dataNasc;
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setDataNasc(LocalDate dataNasc) {
-		this.dataNasc = dataNasc;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public Situacao getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(Situacao situacao) {
+		this.situacao = situacao;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Endereco getEndereco() {
@@ -109,35 +124,22 @@ public class Aluno implements Serializable {
 		this.telefone = telefone;
 	}
 
-	public Situacao getSituacao() {
-		return situacao;
-	}
-
-	public void setSituacao(Situacao situacao) {
-		this.situacao = situacao;
+	public void gerarMatricula() {
+		this.matricula = "0000004";
 	}
 	
-	
-	
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", matricula=" + matricula + ", sexo=" + sexo + ", rg=" + rg + ", dataNasc="
-				+ dataNasc + ", endereco=" + endereco + ", telefone=" + telefone + ", situacao=" + situacao +", email=" + email + "]";
+		return "Aluno [matricula=" + matricula + ", nome=" + nome + ", sexo=" + sexo + ", rg=" + rg
+				+ ", dataNascimento=" + dataNascimento + ", situacao=" + situacao + ", email=" + email + ", endereco="
+				+ endereco + ", telefone=" + telefone + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + matricula;
+		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
 		return result;
 	}
 
@@ -150,9 +152,11 @@ public class Aluno implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Aluno other = (Aluno) obj;
-		if (matricula != other.matricula)
+		if (matricula == null) {
+			if (other.matricula != null)
+				return false;
+		} else if (!matricula.equals(other.matricula))
 			return false;
 		return true;
 	}
-
 }

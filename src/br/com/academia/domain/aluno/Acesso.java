@@ -18,13 +18,10 @@ import javax.persistence.Table;
 @Table(name = "ENTRADA_SAIDA")
 public class Acesso implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID",nullable = false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 	
-	@ManyToOne
-	@JoinColumn(name = "ID_ALUNO", nullable = false)
-    private Aluno aluno = new Aluno();
+	private Aluno aluno = new Aluno();
     
     @Column(name = "DATAENTR",nullable = true, length = 9)
     private LocalDate dataEntr;

@@ -1,43 +1,54 @@
 package br.com.academia.domain.aluno;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-
 @Embeddable
 public class Telefone implements Serializable {
-    
-	@Column(name = "NUMERO",nullable = false, length = 14)
-	private int numero;
 
-    public int getNumero() {
-        return numero;
-    }
+	
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
+	@Column(name = "CELULAR_NUMERO", nullable = false, length = 9)
+	private Integer numeroCelular;
 
-    @Override
-    public String toString() {
-        return "Telefone{" +
-                "numero=" + numero +
-                '}';
-    }
+	
+	public Integer getNumeroCelular() {
+		return numeroCelular;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Telefone telefone = (Telefone) o;
-        return numero == telefone.numero;
-    }
+	public void setNumeroCelular(Integer numeroCelular) {
+		this.numeroCelular = numeroCelular;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(numero);
-    }
+	@Override
+	public String toString() {
+		return "Telefone [numeroCelular=" + numeroCelular + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((numeroCelular == null) ? 0 : numeroCelular.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Telefone other = (Telefone) obj;
+		if (numeroCelular == null) {
+			if (other.numeroCelular != null)
+				return false;
+		} else if (!numeroCelular.equals(other.numeroCelular))
+			return false;
+		return true;
+	}
 }

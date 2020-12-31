@@ -6,59 +6,49 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 
 @Embeddable
-@Table(name = "ENDERECO")
 public class Endereco implements Serializable {
-    @Column(name = "RUA", nullable = false, length = 128)
+
+	@Column(name = "RUA", nullable = false, length = 128)
 	private String rua;
-    
-    @Column(name = "NUMEROCASA",nullable = false ,length = 128)
-    private String numeroCasa;
-    
-    @Column(name ="COMPLEMENTO", nullable = false,length = 256 )
-    private String complemento;
-    
-    @Column(name = "CIDADE",nullable = false,length = 100)
-    private String cidade;
-    
-    @ManyToOne
-    @JoinColumn(name = "ID_ESTADO")
-    private Estado estado;
 
-    public String getRua() {
-        return rua;
-    }
+	@Column(name = "NUMERO", nullable = true, length = 6)
+	private Integer numero;
 
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
+	@Column(name = "COMPLEMENTO", nullable = true, length = 32)
+	private String complemento;
 
-    public String getNumero() {
-        return numeroCasa;
-    }
+	@ManyToOne
+	@JoinColumn(name = "ESTADO_ID", nullable = false)
+	private Estado estado = new Estado();
 
-    public void setNumero(String numeroCasa) {
-        this.numeroCasa = numeroCasa;
-    }
+	@Column(name = "CEP", nullable = false, length = 8)
+	private Integer cep;
 
-    public String getComplemento() {
-        return complemento;
-    }
+	public String getRua() {
+		return rua;
+	}
 
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
 
-    public String getCidade() {
-        return cidade;
-    }
+	public Integer getNumero() {
+		return numero;
+	}
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
 
 	public Estado getEstado() {
 		return estado;
@@ -68,11 +58,29 @@ public class Endereco implements Serializable {
 		this.estado = estado;
 	}
 
+	public Integer getCep() {
+		return cep;
+	}
+
+	public void setCep(Integer cep) {
+		this.cep = cep;
+	}
+
+	@Override
+	public String toString() {
+		return "Endereco [rua=" + rua + ", numero=" + numero + ", complemento=" + complemento + ", cidade=" 
+				+ ", estado=" + estado + ", cep=" + cep + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
+		result = prime * result + ((cep == null) ? 0 : cep.hashCode());
+		result = prime * result + ((complemento == null) ? 0 : complemento.hashCode());
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+		result = prime * result + ((rua == null) ? 0 : rua.hashCode());
 		return result;
 	}
 
@@ -85,18 +93,31 @@ public class Endereco implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
-		if (cidade == null) {
-			if (other.cidade != null)
+		if (cep == null) {
+			if (other.cep != null)
 				return false;
-		} else if (!cidade.equals(other.cidade))
+		} else if (!cep.equals(other.cep))
+			return false;
+		if (complemento == null) {
+			if (other.complemento != null)
+				return false;
+		} else if (!complemento.equals(other.complemento))
+			return false;
+		if (estado == null) {
+			if (other.estado != null)
+				return false;
+		} else if (!estado.equals(other.estado))
+			return false;
+		if (numero == null) {
+			if (other.numero != null)
+				return false;
+		} else if (!numero.equals(other.numero))
+			return false;
+		if (rua == null) {
+			if (other.rua != null)
+				return false;
+		} else if (!rua.equals(other.rua))
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Endereco [rua=" + rua + ", numero=" + numeroCasa + ", complemento=" + complemento + ", cidade=" + cidade
-				+ ", estado=" + estado + "]";
-	}
-
 }
