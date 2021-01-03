@@ -24,7 +24,8 @@ public class AlunoService {
 
 	private void create(Aluno aluno) {
 		Validation.assertNotEmpty(aluno);
-		aluno.gerarMatricula();
+		String maxMatricula = alunoRepository.getMaxMatriculaAno();
+		aluno.gerarMatricula(maxMatricula);
 		alunoRepository.store(aluno);
 	}
 
@@ -37,5 +38,6 @@ public class AlunoService {
 	public Aluno pesquisaPorMatricula(String matricula) {
 		return alunoRepository.findByMatricula(matricula);
 	}
+
 
 }
