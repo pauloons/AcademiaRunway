@@ -22,53 +22,43 @@ public class AlunoBean implements Serializable {
 	
 	@Inject
 	private FacesContext facesContext;
-
+	
 	private Aluno aluno = new Aluno();
-
+	
 	private String matricula;
 	
-	private String titulo = "Novo Aluno";
-
-	public String gravar() {
-		alunoService.createOrUpdate(aluno);
-		facesContext.addMessage(null,new FacesMessage("Mensagem gravada com sucesso!!!"));
-		return null;
-	}
+	private String titulo = "Novo aluno";
+	
 	public void carregar() {
 		if (!StringUtils.isEmpty(matricula)) {
-			aluno = alunoService.pesquisaPorMatricula(matricula);
-			titulo = "Alterar Aluno";
+			aluno = alunoService.findByMatricula(matricula);
+			titulo = "Alterar aluno";
 		}
 	}
-
+	
+	public String gravar() {
+		alunoService.createOrUpdate(aluno);
+		facesContext.addMessage(null, new FacesMessage("Dados gravados com sucesso"));
+		return null;
+	}
+	
 	public Aluno getAluno() {
 		return aluno;
 	}
-
+	
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
-
-	public AlunoService getAlunoService() {
-		return alunoService;
-	}
-
-	public void setAlunoService(AlunoService alunoService) {
-		this.alunoService = alunoService;
-	}
-
+	
 	public String getMatricula() {
 		return matricula;
 	}
-
+	
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
+	
 	public String getTitulo() {
 		return titulo;
 	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
 }
